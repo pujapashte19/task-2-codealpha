@@ -1,0 +1,69 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>11</LangVersion>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <RuntimeIdentifiers>osx-x64;win-x64;win-x86;linux-x64</RuntimeIdentifiers>
+    </PropertyGroup>
+    <PropertyGroup>
+        <UseAppHost>true</UseAppHost>
+    </PropertyGroup>
+    <PropertyGroup>
+        <CFBundleName>GradeManagement</CFBundleName> <!-- Also defines .app file name -->
+        <CFBundleDisplayName>GradeManagement</CFBundleDisplayName>
+        <CFBundleIdentifier>com.duck-dev.grade-management</CFBundleIdentifier>
+        <CFBundleVersion>1.0.1</CFBundleVersion>
+        <CFBundleShortVersionString>1.0.1</CFBundleShortVersionString>
+        <CFBundlePackageType>APPL</CFBundlePackageType>
+        <CFBundleSignature>????</CFBundleSignature>
+        <CFBundleExecutable>GradeManagement</CFBundleExecutable>
+        <CFBundleIconFile>GradeManagementIcon.icns</CFBundleIconFile> <!-- Will be copied from output directory -->
+        <NSPrincipalClass>NSApplication</NSPrincipalClass>
+        <NSHighResolutionCapable>true</NSHighResolutionCapable>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
+    </PropertyGroup>
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="0.10.18" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.18" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.18" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.18" />
+        <PackageReference Include="DotNet.Bundle" Version="0.9.13" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="src\App.axaml.cs">
+        <DependentUpon>App.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="src\Views\ListViews\GradeListView.axaml.cs">
+        <DependentUpon>GradeListView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="src\Views\ListViews\SubjectListView.axaml.cs">
+        <DependentUpon>SubjectListView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="src\Views\ListViews\YearListView.axaml.cs">
+        <DependentUpon>YearListView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="src\Views\AddPages\AddSubjectWindow.axaml.cs">
+        <DependentUpon>AddSubjectWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="src\Views\AddPages\AddGradeWindow.axaml.cs">
+        <DependentUpon>AddGradeWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="src\Views\TargetGrade\TargetGradeWindow.axaml.cs">
+        <DependentUpon>WishGradeWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+</Project>
